@@ -1,9 +1,14 @@
 variable "storage_account_name"{
     type = string
     description = "name of the storage account"
-    default = "devshivasterraformtest"
+    default = "devshivasterraformtest1"
 }
-
+variable "storage_account_name_new" {
+    type = string
+    description = "new storage"
+    default = "newstorageaccountvar"
+  
+}
 variable "resoure_group_name" {
     type = string
     description = "name of the resource group"
@@ -26,6 +31,6 @@ variable "blob_container_name" {
 variable "function_app" {
     type = string
     description = "name of the function app"
-    default = "dev-nodeapp-function"
+    default = "dev-shivaapp-function"
   
 }
