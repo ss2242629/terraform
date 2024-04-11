@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy_dev:
-    if: github.ref == 'refs/heads/master' && matrix.environment == 'dev'
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push' && github.event.ref_type == 'branch' && github.event.ref == 'refs/heads/master'
     runs-on: ubuntu_latest
     strategy: 
       matrix: 
@@ -27,14 +27,17 @@ jobs:
           creds: ${{ secrets.ARM_CLIENT_SECRET }}
           args: --service-principal --tenant ${{ secrets.ARM_TENANT_ID }} --service-principal-id ${{ secrets.ARM_CLIENT_ID}} --subscriptions ${{ secrets.ARM_SUBSCRIPTION_ID }} 
            
-      - name: Terraform init (${{ matrix.environment }}
-        run: terraform chdir=environment/${{ matrix.environment }} init
+      - name: Terraform init dev
+        if: github.ref == 'refs/heads/master' && github.event_name == 'push' && github.event.ref_type == 'branch' && github.event.ref == 'refs/heads/master'
+        run: terraform chdir=environment/dev init
 
-      - name: Terraform plan (${{ matrix.environment }}
-        run: terraform chdir=environment/${{ matrix.environment }} plan -out=tfplan
+      - name: Terraform plan dev
+        if: github.ref == 'refs/heads/master' && github.event_name == 'push' && github.event.ref_type == 'branch' && github.event.ref == 'refs/heads/master'
+        run: terraform chdir=environment/dev plan -out=tfplan
 
-      - name: Terraform apply (${{ matrix.environment }}
-        run: terraform chdir=environment/${{ matrix.environment }} apply tfplan -auto-approve
+      - name: Terraform apply dev
+        if: github.ref == 'refs/heads/master' && github.event_name == 'push' && github.event.ref_type == 'branch' && github.event.ref == 'refs/heads/master'
+        run: terraform chdir=environment/dev apply tfplan -auto-approve
         
       
       
