@@ -18,7 +18,7 @@ jobs:
         with:
             tf_actions_version: 1.2.0
             tf_actions_working_dir: "./environment/dev"
-            tf_actions_comments: true
+            tf_actions_comment: true
         env:
           github_token: ${{ secrets.TERRAFORM_TOKEN }}
            
@@ -28,7 +28,7 @@ jobs:
           tf_actions_version: 1.2.0
           tf_actions_subcommand: "init"
           tf_actions_working_dir: "./environment/dev"
-          tf_actions_comments: true
+          tf_actions_comment: true
         env:
           github_token: ${{ secrets.TERRAFORM_TOKEN }}
           
@@ -39,7 +39,7 @@ jobs:
           tf_actions_version: 1.2.0
           tf_actions_subcommand: "plan"
           tf_actions_working_dir: "./environment/dev"
-          tf_actions_comments: true
+          tf_actions_comment: true
         env:
           github_token: ${{ secrets.TERRAFORM_TOKEN }}
           TF_VAR_agent_client_id: ${{ secrets.ARM_CLIENT_ID }}
@@ -56,7 +56,7 @@ jobs:
           tf_actions_version: 1.2.0
           tf_actions_subcommand: "apply"
           tf_actions_working_dir: "./environment/dev"
-          tf_actions_comments: true
+          tf_actions_comment: true
         env:
           github_token: ${{ secrets.TERRAFORM_TOKEN }}
           TF_VAR_agent_client_id: ${{ secrets.ARM_CLIENT_ID }}
