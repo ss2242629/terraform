@@ -13,15 +13,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Setup Terraform
-        uses: hashicorp/terraform-github-actions@master
-        with:
-            tf_actions_version: 1.2.0
-            tf_actions_subcommand: "fmt"
-            tf_actions_working_dir: "./environment/dev"
-            tf_actions_comment: true
-        env:
-          github_token: ${{ secrets.TERRAFORM_TOKEN }}
+      # - name: Setup Terraform
+      #   uses: hashicorp/terraform-github-actions@master
+      #   with:
+      #       tf_actions_version: 1.2.0
+      #       tf_actions_subcommand: "fmt"
+      #       tf_actions_working_dir: "./environment/dev"
+      #       tf_actions_comment: true
+      #   env:
+      #     github_token: ${{ secrets.TERRAFORM_TOKEN }}
            
       - name: Terraform init dev
         uses: hashicorp/terraform-github-actions@master
