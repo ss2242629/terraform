@@ -30,9 +30,12 @@ jobs:
       - name: Terraform init (${{ matrix.environment }}
         run: terraform chdir=environment/${{ matrix.environment }} init
 
-      - name: 
+      - name: Terraform plan (${{ matrix.environment }}
+        run: terraform chdir=environment/${{ matrix.environment }} plan -out=tfplan
 
-      # plan and apply , 
+      - name: Terraform apply (${{ matrix.environment }}
+        run: terraform chdir=environment/${{ matrix.environment }} apply tfplan -auto-approve
+        
       
       
            
