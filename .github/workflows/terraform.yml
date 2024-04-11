@@ -7,11 +7,8 @@ on:
 
 jobs:
   deploy_dev:
-    if: github.ref == 'refs/heads/master' && github.event_name == 'push' && github.event.ref_type == 'branch' && github.event.ref == 'refs/heads/master'
+   
     runs-on: ubuntu_latest
-    strategy: 
-      matrix: 
-        environment: ['dev', 'state', 'prod']
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -28,15 +25,12 @@ jobs:
           args: --service-principal --tenant ${{ secrets.ARM_TENANT_ID }} --service-principal-id ${{ secrets.ARM_CLIENT_ID}} --subscriptions ${{ secrets.ARM_SUBSCRIPTION_ID }} 
            
       - name: Terraform init dev
-        if: github.ref == 'refs/heads/master' && github.event_name == 'push' && github.event.ref_type == 'branch' && github.event.ref == 'refs/heads/master'
         run: terraform chdir=environment/dev init
 
       - name: Terraform plan dev
-        if: github.ref == 'refs/heads/master' && github.event_name == 'push' && github.event.ref_type == 'branch' && github.event.ref == 'refs/heads/master'
         run: terraform chdir=environment/dev plan -out=tfplan
 
       - name: Terraform apply dev
-        if: github.ref == 'refs/heads/master' && github.event_name == 'push' && github.event.ref_type == 'branch' && github.event.ref == 'refs/heads/master'
         run: terraform chdir=environment/dev apply tfplan -auto-approve
         
       
