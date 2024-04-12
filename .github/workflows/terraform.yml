@@ -9,12 +9,16 @@ jobs:
   deploy_dev:
     name: "Terraform Deployment"
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Check Azure CLI Version
-        run: az --version
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}  
+
 
       # - name: Setup Terraform
       #   uses: hashicorp/terraform-github-actions@master
