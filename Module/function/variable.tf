@@ -31,3 +31,20 @@ variable "storage_account_name" {
 variable "strorage_account_access_key"{
     type = string
 }
+
+variable "agent_client_id" {
+
+  
+}
+
+variable "agent_client_secret" {
+  
+}
+
+variable "subscription_id" {
+  
+}
+
+variable "tenant_id" {
+  
+}
