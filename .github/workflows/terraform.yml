@@ -32,6 +32,10 @@ jobs:
           tf_actions_comment: true
         env:
           github_token: ${{ secrets.TERRAFORM_TOKEN }}
+          TF_VAR_agent_client_id: ${{ secrets.ARM_CLIENT_ID }}
+          TF_VAR_agent_client_secret: ${{ secrets.ARM_CLIENT_SECRET }}
+          TF_VAR_subscription_id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+          TF_VAR_tenant_id: ${{ secrets.ARM_TENANT_ID }}
           
 
       - name: Terraform plan dev
