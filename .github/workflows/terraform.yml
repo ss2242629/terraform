@@ -9,14 +9,12 @@ jobs:
   deploy_dev:
     name: "Terraform Deployment"
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Install Azure CLI
-        uses: azure/CLI@v2
-        with:
-          inlineScript: |
-            curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
       # - name: Setup Terraform
       #   uses: hashicorp/terraform-github-actions@master
