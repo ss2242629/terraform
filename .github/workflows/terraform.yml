@@ -9,12 +9,12 @@ jobs:
   deploy_dev:
     name: "Terraform Deployment"
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Check Azure CLI Version
+        run: az --version
 
       # - name: Setup Terraform
       #   uses: hashicorp/terraform-github-actions@master
