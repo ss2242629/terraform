@@ -30,3 +30,20 @@ variable "function_app" {
     default = "stage-nodeapp-function"
   
 }
+
+variable "agent_client_id" {
+
+  
+}
+
+variable "agent_client_secret" {
+  
+}
+
+variable "subscription_id" {
+  
+}
+
+variable "tenant_id" {
+  
+}

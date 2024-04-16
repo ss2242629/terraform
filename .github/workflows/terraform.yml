@@ -3,7 +3,7 @@ name: terraform deployment
 on:
   push:
     branches:
-      - master
+      - stage
 
 jobs:
   deploy_dev:
@@ -35,17 +35,17 @@ jobs:
       #     -backend-config="resource_group_name=terraform-backend-rg"
 
       - name: Terraform init with backend configuration
-        working-directory: ./environment/dev
+        working-directory: ./environment/stage
         run: |
           terraform init \
           -backend-config="storage_account_name=bestanbterraformstate" \
-          -backend-config="container_name=statefile" \
+          -backend-config="container_name=stagestagefile" \
           -backend-config="access_key=${{ secrets.STORAGE_KEY }}" \
-          -backend-config="key=dev.terraform.tfstate" \
+          -backend-config="key=stage.terraform.tfstate" \
           -backend-config="resource_group_name=terraform-backend-rg"
      
       - name: terraform plan
-        working-directory: ./environment/dev
+        working-directory: ./environment/stage
         run: |
           terraform plan \
           -var="agent_client_id=${{ secrets.ARM_CLIENT_ID }}" \
@@ -55,7 +55,7 @@ jobs:
 
 
       - name: terraform apply
-        working-directory: ./environment/dev
+        working-directory: ./environment/stage
         run: |
          terraform apply -auto-approve \
          -var="agent_client_id=${{ secrets.ARM_CLIENT_ID }}" \
