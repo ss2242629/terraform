@@ -1,7 +1,7 @@
 variable "storage_account_name"{
     type = string
     description = "name of the storage account"
-    default = "stageshivasterraformtest12"
+    default = "stagetfssterraform"
 }
 
 variable "resource_group_name" {
