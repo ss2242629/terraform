@@ -1,13 +1,7 @@
 variable "storage_account_name"{
     type = string
     description = "name of the storage account"
-    default = "devshivasterraformtest"
-}
-variable "storage_account_name_new" {
-    type = string
-    description = "name of new storage account"
-    default = "devnewstorageacccount"
-  
+    default = "prodbestterraform"
 }
 variable "resoure_group_name" {
     type = string
@@ -25,5 +19,21 @@ variable "blob_container_name" {
     type = string
     description = "name of the container"
     default = "prod-sscontainer"
+  
+}
+variable "agent_client_id" {
+
+  
+}
+
+variable "agent_client_secret" {
+  
+}
+
+variable "subscription_id" {
+  
+}
+
+variable "tenant_id" {
   
 }

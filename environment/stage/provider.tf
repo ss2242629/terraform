@@ -8,8 +8,8 @@ terraform {
   backend "azurerm" {
     resource_group_name = "terraform-backend-rg"
     storage_account_name = "bestanbterraformstate"
-    container_name = "stagestagefile"
-    key = "stage.terraform.tfstate"
+    container_name = "prodstatefile"
+    key = "prod.terraform.tfstate"
    
     
   }
