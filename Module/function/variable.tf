@@ -21,7 +21,7 @@ variable "service_plan_name"{
 variable "function_app_name" {
     type = string
     description = "name of the function app"
-    default = "nodeapp-function"
+    default = "bestnodeapp-function"
   
 }
 variable "storage_account_name" {

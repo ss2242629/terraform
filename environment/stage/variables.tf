@@ -1,7 +1,7 @@
 variable "storage_account_name"{
     type = string
     description = "name of the storage account"
-    default = "stagebestanbterraf"
+    default = "stagebestanbterra"
 }
 
 variable "resource_group_name" {
