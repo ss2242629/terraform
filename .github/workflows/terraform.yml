@@ -37,7 +37,7 @@ jobs:
       - name: terraform plan
         working-dir: ./environment/dev
         run: |
-        terraform plan
+          terraform plan
 
       - name: terraform apply
         working-dir: ./environment/dev
