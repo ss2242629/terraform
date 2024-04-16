@@ -1,7 +1,7 @@
 variable "storage_account_name"{
     type = string
     description = "name of the storage account"
-    default = "stagebestanbterra"
+    default = "stagebestanbterr"
 }
 
 variable "resource_group_name" {
@@ -27,7 +27,7 @@ variable "blob_container_name" {
 variable "function_app" {
     type = string
     description = "name of the function app"
-    default = "stage-nodeapp-function"
+    default = "ssstage-nodeapp-function"
   
 }
 
