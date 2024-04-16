@@ -24,12 +24,22 @@ jobs:
         with: 
           terraform_version: 1.7.0
      
-      - name: terraform init
-        working-directory: ./environment/dev 
+      # - name: terraform init
+      #   working-directory: ./environment/dev 
+      #   run: |
+      #     terraform init \
+      #     -backend-config="storage_account_name=bestanbterraformstate" \
+      #     -backend-config="container_name=statefile" \  
+      #     -backend-config="access_key=${{ secrets.STORAGE_KEY }}" \
+      #     -backend-config="key=dev.terraform.tfstate" \
+      #     -backend-config="resource_group_name=terraform-backend-rg"
+
+      - name: Terraform init with backend configuration
+        working-directory: ./environment/dev
         run: |
           terraform init \
           -backend-config="storage_account_name=bestanbterraformstate" \
-          -backend-config="container_name=statefile" \  
+          -backend-config="container_name=statefile" \
           -backend-config="access_key=${{ secrets.STORAGE_KEY }}" \
           -backend-config="key=dev.terraform.tfstate" \
           -backend-config="resource_group_name=terraform-backend-rg"
