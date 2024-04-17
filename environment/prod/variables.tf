@@ -27,6 +27,15 @@ variable "blob_container_name" {
     default = "prod-sscontainer"
   
 }
+
+variable "function_app" {
+    type = string
+    description = "name of the function app"
+    default = "prod-shivaapp-function"
+  
+}
+
+
 variable "agent_client_id" {
 
   
