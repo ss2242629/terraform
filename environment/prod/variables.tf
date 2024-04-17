@@ -1,7 +1,7 @@
 variable "storage_account_name"{
     type = string
     description = "name of the storage account"
-    default = "devshivasterraformtest"
+    default = "prodshivasterraformtest"
 }
 variable "storage_account_name_new" {
     type = string
