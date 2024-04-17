@@ -27,3 +27,19 @@ variable "blob_container_name" {
     default = "prod-sscontainer"
   
 }
+variable "agent_client_id" {
+
+  
+}
+
+variable "agent_client_secret" {
+  
+}
+
+variable "subscription_id" {
+  
+}
+
+variable "tenant_id" {
+  
+}
