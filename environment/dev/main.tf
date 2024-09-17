@@ -1,3 +1,4 @@
+## comment -----
 resource "azurerm_resource_group" "example" {
     name = var.resoure_group_name
     location = var.location
